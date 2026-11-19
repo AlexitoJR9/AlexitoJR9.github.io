@@ -582,6 +582,22 @@
       if (e.key === 'ArrowRight') showImg(idx + 1);
     }, true);
   </script>
+  <script>
+    // Always open at the top: no scroll restoration, no #section left in the URL
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    window.scrollTo(0, 0);
+    window.addEventListener('load', () => window.scrollTo(0, 0));
+    window.addEventListener('pageshow', e => { if (e.persisted) window.scrollTo(0, 0); });
+    // In-page links scroll smoothly without adding #section to the URL
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      e.preventDefault();
+      if (!id) { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }));
+  </script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

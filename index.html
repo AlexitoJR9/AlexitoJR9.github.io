@@ -158,23 +158,33 @@
     .p-head h2 { font-size: 1.8rem; font-weight: 700; line-height: 1.15; letter-spacing: -0.025em; }
     .x { flex: none; width: 36px; height: 36px; border-radius: 50%; border: 0; background: var(--alt); color: var(--muted); font-size: 1.25rem; cursor: pointer; transition: background .2s; }
     .x:hover { background: var(--line); color: var(--ink); }
-    .p-body { padding: 24px 32px 36px; }
-    .p-body h3 { font-size: 1.15rem; font-weight: 700; margin: 8px 0 14px; letter-spacing: -0.01em; }
-    .conf { font-size: .9rem; color: var(--muted); }
-    .conf-big { margin: 0 0 24px; padding: 12px 16px; background: var(--alt); border-radius: 14px; }
-    .docs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
-    .doc { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 980px; background: var(--alt); text-decoration: none; font-size: .95rem; transition: background .2s, color .2s; }
-    .doc:hover { background: var(--blue); color: #fff; }
-    .doc .pdf { display: none; }
-    .doc small { font-size: .78rem; opacity: .6; }
-    .videos { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 32px; }
-    .videos figure { margin: 0; }
-    .videos video { width: 100%; aspect-ratio: 16/9; display: block; background: #000; object-fit: contain; border-radius: 14px; }
-    .videos figcaption, .gallery figcaption { font-size: .82rem; color: var(--muted); padding: 8px 2px 0; }
-    .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px; }
-    .gallery figure { margin: 0; cursor: zoom-in; }
-    .gallery img { width: 100%; aspect-ratio: 4/3; object-fit: contain; display: block; background: var(--alt); border-radius: 14px; transition: transform .3s; }
-    .gallery figure:hover img { transform: scale(1.02); }
+    .p-body { padding: 0 32px 40px; max-width: 760px; margin: 0 auto; }
+    .p-body a { color: var(--blue); text-decoration: none; }
+    .p-body a:hover { text-decoration: underline; }
+    .cs-hero { display: block; width: 100%; max-height: 420px; object-fit: contain; background: var(--alt); border-radius: 18px; margin-top: 24px; cursor: zoom-in; }
+    .cs-lead { font-size: 1.45rem; line-height: 1.35; font-weight: 600; letter-spacing: -0.02em; margin: 28px 0 22px; }
+    .cs-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+    .cs-facts div { padding: 14px 16px 14px 0; }
+    .cs-facts dt { font-size: .75rem; color: var(--muted); }
+    .cs-facts dd { font-size: .95rem; font-weight: 500; }
+    .cs-note { font-size: .88rem; color: var(--muted); background: var(--alt); border-radius: 12px; padding: 10px 14px; margin-bottom: 8px; }
+    .cs-section { margin-top: 40px; padding: 0; background: none; }
+    .cs-section h3 { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 10px; }
+    .cs-section p { font-size: 1.05rem; line-height: 1.65; color: #333336; margin-bottom: 14px; }
+    .cs-fig, .cs-video { margin: 18px 0 6px; }
+    .cs-fig img { display: block; width: 100%; max-height: 460px; object-fit: contain; background: var(--alt); border-radius: 14px; cursor: zoom-in; transition: transform .3s; }
+    .cs-fig img:hover { transform: scale(1.01); }
+    .cs-video video { display: block; width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 14px; object-fit: contain; }
+    .cs-fig figcaption, .cs-video figcaption { font-size: .82rem; color: var(--muted); margin-top: 8px; text-align: center; }
+    .cs-figs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .cs-figs .cs-fig img { aspect-ratio: 4/3; }
+    .cs-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 6px 0 18px; }
+    .cs-stats div { background: var(--alt); border-radius: 16px; padding: 18px 20px; }
+    .cs-stats strong { display: block; font-size: 2.2rem; font-weight: 700; letter-spacing: -0.03em; color: var(--blue); line-height: 1.1; }
+    .cs-stats span { font-size: .88rem; color: var(--muted); }
+    .cs-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--line); }
+    .cs-cta .btn { font-size: .95rem; padding: 10px 20px; }
+    .p-body .cs-cta .btn.primary { color: #fff; } .p-body .cs-cta .btn:hover { text-decoration: none; }
 
     #lightbox { border: 0; margin: 0; width: 100vw; height: 100vh; max-width: none; max-height: none; background: rgba(255, 255, 255, .96); align-items: center; justify-content: center; flex-direction: column; padding: 20px; }
     #lightbox[open] { display: flex; }
@@ -199,6 +209,9 @@
       .card-body { padding: 22px; }
       #lb-prev, #lb-next { top: auto; bottom: 18px; }
       .p-head, .p-body { padding-left: 20px; padding-right: 20px; }
+      .cs-figs { grid-template-columns: 1fr; }
+      .cs-lead { font-size: 1.2rem; }
+      .p-head h2 { font-size: 1.3rem; }
     }
   </style>
 </head>
@@ -316,7 +329,7 @@
               <span class="chip">MATLAB</span><span class="chip">Simulink</span><span class="chip">Digital twin</span><span class="chip">HVAC</span><span class="chip">Predictive maintenance</span>
             </div>
             <a class="pres-btn" href="docs/MSc-thesis-presentation.pdf" target="_blank" rel="noopener" onclick="event.stopPropagation()"><span>▶</span>View presentation<small>PDF</small></a>
-            <button class="open-btn" type="button">Images and documents ›</button>
+            <button class="open-btn" type="button">View project ›</button>
           </div>
         </article>
 
@@ -335,7 +348,7 @@
               <span class="chip">Finite elements</span><span class="chip">Genetic algorithm</span><span class="chip">MATLAB</span><span class="chip">Ansys</span><span class="chip">Heat transfer</span>
             </div>
             <a class="pres-btn" href="docs/BSc-thesis-presentation.pdf" target="_blank" rel="noopener" onclick="event.stopPropagation()"><span>▶</span>View presentation<small>PDF</small></a>
-            <button class="open-btn" type="button">Images and documents ›</button>
+            <button class="open-btn" type="button">View project ›</button>
           </div>
         </article>
 
@@ -354,7 +367,7 @@
               <span class="chip">Mechanical design</span><span class="chip">Arduino</span><span class="chip">Sensors</span><span class="chip">Business plan</span>
             </div>
             <a class="pres-btn" href="docs/research-project-presentation.pdf" target="_blank" rel="noopener" onclick="event.stopPropagation()"><span>▶</span>View presentation<small>PDF</small></a>
-            <button class="open-btn" type="button">Images and documents ›</button>
+            <button class="open-btn" type="button">View project ›</button>
           </div>
         </article>
 
@@ -370,7 +383,7 @@
             <div class="chips">
               <span class="chip">CAD 3D</span><span class="chip">3D printing</span><span class="chip">CNC</span><span class="chip">Electronics</span>
             </div>
-            <button class="open-btn" type="button">Images and documents ›</button>
+            <button class="open-btn" type="button">View project ›</button>
           </div>
         </article>
 
@@ -429,14 +442,7 @@
       <div><p class="meta" id="p-meta"></p><h2 id="p-title"></h2></div>
       <button class="x" id="p-close" aria-label="Close">×</button>
     </div>
-    <div class="p-body">
-      <p class="conf conf-big" id="p-conf">🔒 Confidential work carried out for a company, so only a small part of the project is shown.</p>
-      <h3>Documents and links</h3>
-      <div class="docs" id="p-docs"></div>
-      <div id="p-vids-wrap"><h3>Videos</h3><div class="videos" id="p-vids"></div></div>
-      <h3>Images</h3>
-      <div class="gallery" id="p-gallery"></div>
-    </div>
+    <div class="p-body" id="p-body"></div>
   </dialog>
 
   <dialog id="lightbox">
@@ -447,131 +453,258 @@
     <button id="lb-next" aria-label="Next">›</button>
   </dialog>
 
-  <script>
-    const PROJECTS = {
-      msc: {
-        conf: true,
-        meta: "Master's thesis · 2026 · MSc in Industrial Engineering · UdG · 🏆 Best MEI Master's Thesis Award",
-        title: "FDD system for HVAC units",
-        docs: [["Presentation", "docs/MSc-thesis-presentation.pdf", "2.9 MB"]],
-        imgs: [["msc-thesis/01", "FDD report: probability of each fault, temperatures and operating stage"],
-               ["msc-thesis/02", "Diagram of the hybrid adiabatic unit"],
-               ["msc-thesis/03", "Digital twin of the unit in Simulink"],
-               ["msc-thesis/04", "Psychrometric chart of the air treatment"],
-               ["msc-thesis/05", "Fault signature matrix"],
-               ["msc-thesis/06", "Simulation model results"],
-               ["msc-thesis/07", "Consumption report: real vs. simulated"]]
-      },
-      bsc: {
-        conf: true,
-        vids: [["bsc-thesis-01", "Simulation of the temperature gradient across the profile"]],
-        meta: "Bachelor's thesis · 2024 · BSc in Industrial Technology Engineering · UdG",
-        title: "Finite elements and machine learning applied to aluminium quenching",
-        docs: [["GOTA software article", "https://aluminium-journal.com/next-generation-quenching-for-high-performance-extrusion", "ALUMINIUM journal", "web"], ["Poster", "docs/BSc-thesis-poster.pdf", "1 MB"], ["Presentation", "docs/BSc-thesis-presentation.pdf", "3.3 MB"]],
-        imgs: [["bsc-thesis/02", "Project poster (30th Premis Patronat Politècnica)"],
-               ["bsc-thesis/05", "Kautec nozzle quenching line"],
-               ["bsc-thesis/06", "Profile bent by non-uniform cooling"],
-               ["bsc-thesis/07", "Boiling curve and Leidenfrost effect"],
-               ["bsc-thesis/08", "Spray heat transfer correlations (Hall & Mudawar)"],
-               ["bsc-thesis/09", "Spray cone overlap and volumetric flux"],
-               ["bsc-thesis/10", "Calculation of the spray impact width (WID)"],
-               ["bsc-thesis/11", "WID justification on the profile"],
-               ["bsc-thesis/12", "Profile cross-section drawing with nozzle layout"],
-               ["bsc-thesis/13", "Nozzle distribution by zone along the line"]]
-      },
-      research: {
-        vids: [["research-project-01", "Animation of the AlexSim pedal set"],
-               ["research-project-02", "Calibrating the pedals in Windows"],
-               ["research-project-03", "Testing the pedals in a rally simulator"],
-               ["research-project-04", "360° render animation of the pedal set"]],
-        meta: "High-school research project · 2019 · Treball de Recerca",
-        title: "AlexSim: from an idea to a company",
-        docs: [["AlexSim website", "https://alexjir22011.wixsite.com/website-1/pedal", "wixsite.com", "web"], ["Presentation", "docs/research-project-presentation.pdf", "4.5 MB"], ["Poster", "docs/research-project-poster.pdf", "3 MB"], ["Report (Catalan)", "docs/research-project-report.pdf", "8.8 MB"]],
-        imgs: [["research-project/00", "AlexSim pedal set render"],
-               ["research-project/01", "Render of the AlexSim pedal set"],
-               ["research-project/02", "Render of the AlexSim handbrake"],
-               ["research-project/03", "Render of the AlexSim gear shifter"],
-               ["research-project/04", "CAD assembly of the pedal set"],
-               ["research-project/05", "CAD design of the pedal"],
-               ["research-project/06", "Rendering the pedal set"],
-               ["research-project/07", "Gear shifter mechanism design"],
-               ["research-project/08", "Force diagram on the pedal lever"],
-               ["research-project/09", "Pedal design parameters"],
-               ["research-project/10", "Pedal mock-up"],
-               ["research-project/11", "Pedal mock-up (side view)"],
-               ["research-project/12", "3D printer making parts"],
-               ["research-project/13", "Hall effect principle"],
-               ["research-project/14", "Strain gauge under bending"],
-               ["research-project/15", "Electronics prototype on a breadboard"],
-               ["research-project/16", "Tests with an Arduino Pro Micro"],
-               ["research-project/17", "Tests with an Arduino UNO"],
-               ["research-project/18", "Load cell test"],
-               ["research-project/19", "Electronics test setup"],
-               ["research-project/20", "Arduino-based wiring diagram"],
-               ["research-project/21", "Electronic schematic design"],
-               ["research-project/22", "PCB design (top side)"],
-               ["research-project/23", "PCB design (bottom side)"],
-               ["research-project/24", "Programming the Arduino firmware"],
-               ["research-project/25", "AlexSim website"]]
-      },
-      cnc: {
-        vids: [["cnc-01", "First tests of the cutter in operation"],
-               ["cnc-02", "Timelapse of the 3D design of a cutter part"]],
-        meta: "Personal project · 2019",
-        title: "Design and build of a CNC laser cutter",
-        docs: [["Y-axis carriage drawing", "docs/CNC-Y-axis-carriage.pdf", "0.1 MB"], ["Y-axis carriage drawing (exploded)", "docs/CNC-Y-axis-carriage-exploded.pdf", "0.1 MB"], ["Y-axis block drawing", "docs/CNC-Y-axis-block.pdf", "0.1 MB"]],
-        imgs: [["cnc/01", "Render of the complete cutter"],
-               ["cnc/02", "The cutter in operation"],
-               ["cnc/03", "Y-axis carriage"],
-               ["cnc/04", "X-axis carriage with the laser module"],
-               ["cnc/05", "Y-axis block"],
-               ["cnc/06", "3D-printed carriage with stepper motor"],
-               ["cnc/07", "Close-up of the carriage pulleys and bearings"],
-               ["cnc/08", "3D printing the parts"],
-               ["cnc/09", "Printed carriage part"]]
-      }
-    };
+  <!--
+    ============================================================
+    PROJECT CASE STUDIES — edit the content of each project here.
+    ============================================================
+    Each <template> is the page that opens when a project card is clicked.
+      data-meta   → small blue line above the title
+      data-title  → title of the dialog
+    Building blocks (copy, delete or reorder freely):
+      <img class="cs-hero">                    big image at the top
+      <p class="cs-lead">                       one-sentence summary
+      <dl class="cs-facts">                     key facts (label + value)
+      <section class="cs-section"><h3>…</h3>    text section (Context, My role, Approach, Results…)
+      <figure class="cs-fig">                   image with caption (click to enlarge)
+      <div class="cs-figs">                     2 images side by side
+      <div class="cs-stats">                    big numbers (value + label)
+      <figure class="cs-video">                 video with caption
+      <div class="cs-cta">                      buttons at the end (presentation, documents, links)
+      <p class="cs-note">                       grey info box (e.g. confidentiality)
+    Lines marked DRAFT were written from the CV, the theses and the posters: review them.
+  -->
 
+  <!-- ===================== MASTER'S THESIS ===================== -->
+  <template id="cs-msc" data-meta="Master's thesis · 2026 · MSc in Industrial Engineering · UdG" data-title="FDD system for HVAC units">
+    <img class="cs-hero" src="img/msc-thesis/02.jpg" alt="Diagram of the hybrid adiabatic HVAC unit">
+    <!-- DRAFT -->
+    <p class="cs-lead">A digital-twin-based system that detects and diagnoses faults in industrial HVAC units before they turn into breakdowns or wasted energy.</p>
+    <dl class="cs-facts">
+      <div><dt>Role</dt><dd>Sole developer</dd></div>
+      <div><dt>Partners</dt><dd>PROISOTEC GRUP Digital Twin · TAVIL</dd></div>
+      <div><dt>Tools</dt><dd>MATLAB · Simulink</dd></div>
+      <div><dt>Recognition</dt><dd>🏆 Best MEI Master's Thesis</dd></div>
+    </dl>
+    <p class="cs-note">🔒 Confidential work carried out for a company, so only a small part of the project is shown.</p>
+
+    <section class="cs-section">
+      <h3>Context</h3>
+      <!-- DRAFT -->
+      <p>TAVIL's plant is cooled by 84 hybrid adiabatic HVAC units. Their control loops compensate for gradual degradation, so faults stay hidden from the alarms until they cause a breakdown or a significant loss of efficiency.</p>
+    </section>
+
+    <section class="cs-section">
+      <h3>My role</h3>
+      <!-- DRAFT -->
+      <p>I designed and implemented the whole system: the thermodynamic model of the unit, the digital twin, the diagnosis engine and its validation with real plant data.</p>
+    </section>
+
+    <section class="cs-section">
+      <h3>Approach</h3>
+      <!-- DRAFT -->
+      <p>A digital twin in Simulink computes how each unit should behave under the current conditions. The difference between the real and the expected behaviour is compared against a fault signature matrix, which links each pattern of deviations to its root cause.</p>
+      <div class="cs-figs">
+        <figure class="cs-fig"><img src="img/msc-thesis/03.jpg" alt=""><figcaption>Digital twin of the unit in Simulink</figcaption></figure>
+        <figure class="cs-fig"><img src="img/msc-thesis/05.jpg" alt=""><figcaption>Fault signature matrix</figcaption></figure>
+      </div>
+      <figure class="cs-fig"><img src="img/msc-thesis/01.jpg" alt=""><figcaption>Daily FDD report: probability of each fault, temperatures and operating stage</figcaption></figure>
+    </section>
+
+    <section class="cs-section">
+      <h3>Results</h3>
+      <div class="cs-stats">
+        <div><strong>84</strong><span>HVAC units covered</span></div>
+        <div><strong>🏆</strong><span>Best MEI Master's Thesis Award</span></div>
+      </div>
+      <!-- DRAFT -->
+      <p>Validated with real plant data: the system identifies the degradation of the adiabatic subsystem and compressor shutdowns, each with its own thermodynamic signature. The thesis received the Best MEI Master's Thesis Award from <a href="https://www.linkedin.com/posts/enginyeriaindustrial-talentenginyer-innovaciaej-ugcPost-7520419120165752832-ToW3/" target="_blank" rel="noopener">Enginyers Industrials de Catalunya ↗</a>.</p>
+    </section>
+
+    <div class="cs-cta">
+      <a class="btn primary" href="docs/MSc-thesis-presentation.pdf" target="_blank" rel="noopener">View full presentation</a>
+    </div>
+  </template>
+
+  <!-- ===================== BACHELOR'S THESIS ===================== -->
+  <template id="cs-bsc" data-meta="Bachelor's thesis · 2024 · BSc in Industrial Technology Engineering · UdG" data-title="Finite elements and machine learning applied to aluminium quenching">
+    <img class="cs-hero" src="img/bsc-thesis/06.jpg" alt="Aluminium profile on the extrusion line">
+    <!-- DRAFT -->
+    <p class="cs-lead">A fast thermal simulator and a genetic algorithm that find the best nozzle configuration to quench extruded aluminium profiles.</p>
+    <dl class="cs-facts">
+      <div><dt>Role</dt><dd>R&amp;D intern</dd></div>
+      <div><dt>Company</dt><dd>Kautec Solutions</dd></div>
+      <div><dt>Tools</dt><dd>MATLAB · Ansys</dd></div>
+      <div><dt>Outcome</dt><dd>GOTA software</dd></div>
+    </dl>
+    <p class="cs-note">🔒 Confidential work carried out for a company, so only a small part of the project is shown.</p>
+
+    <section class="cs-section">
+      <h3>Context</h3>
+      <!-- DRAFT -->
+      <p>After extrusion, aluminium profiles have to be cooled quickly and evenly. Uneven cooling bends the profile (as in the photo above), and finding the right setting for the quenching table's many parameters was a slow process of trial and error.</p>
+      <figure class="cs-fig"><img src="img/bsc-thesis/05.jpg" alt=""><figcaption>Kautec nozzle quenching table</figcaption></figure>
+    </section>
+
+    <section class="cs-section">
+      <h3>My role</h3>
+      <!-- DRAFT -->
+      <p>I developed TermoPixel, a finite-element heat-transfer simulator, and the machine learning optimiser built on top of it.</p>
+    </section>
+
+    <section class="cs-section">
+      <h3>Approach</h3>
+      <!-- DRAFT -->
+      <p>The simulator models conduction inside the profile, the spray of each nozzle and the Leidenfrost effect. A genetic algorithm then searches the configuration of the cooler that gives the fastest and most uniform cooling.</p>
+      <div class="cs-figs">
+        <figure class="cs-fig"><img src="img/bsc-thesis/07.jpg" alt=""><figcaption>Boiling curve and Leidenfrost effect</figcaption></figure>
+        <figure class="cs-fig"><img src="img/bsc-thesis/09.jpg" alt=""><figcaption>Spray cone overlap and volumetric flux</figcaption></figure>
+      </div>
+      <figure class="cs-video"><video controls playsinline preload="none" poster="video/bsc-thesis-01.jpg"><source src="video/bsc-thesis-01.mp4" type="video/mp4"></video><figcaption>Simulation of the temperature gradient across the profile</figcaption></figure>
+    </section>
+
+    <section class="cs-section">
+      <h3>Results</h3>
+      <div class="cs-stats">
+        <div><strong>34×</strong><span>faster than Ansys</span></div>
+        <div><strong>3.8%</strong><span>maximum error</span></div>
+        <div><strong>−56%</strong><span>water flow for the same result</span></div>
+      </div>
+      <!-- DRAFT -->
+      <p>The tool became Kautec's GOTA software, <a href="https://aluminium-journal.com/next-generation-quenching-for-high-performance-extrusion" target="_blank" rel="noopener">featured in ALUMINIUM journal ↗</a>. The project was presented at the 30th Premis Patronat Politècnica.</p>
+    </section>
+
+    <div class="cs-cta">
+      <a class="btn primary" href="docs/BSc-thesis-presentation.pdf" target="_blank" rel="noopener">View full presentation</a>
+      <a class="btn ghost" href="docs/BSc-thesis-poster.pdf" target="_blank" rel="noopener">Poster</a>
+    </div>
+  </template>
+
+  <!-- ===================== RESEARCH PROJECT ===================== -->
+  <template id="cs-research" data-meta="High-school research project · 2019 · Treball de Recerca" data-title="AlexSim: from an idea to a company">
+    <img class="cs-hero" src="img/research-project-cover.jpg" alt="Render of the AlexSim pedal set">
+    <!-- DRAFT -->
+    <p class="cs-lead">From a sketch to a small company: designing, building and selling sim-racing pedals.</p>
+    <dl class="cs-facts">
+      <div><dt>Role</dt><dd>Everything, end to end</dd></div>
+      <div><dt>Products</dt><dd>Pedals · handbrake · shifter</dd></div>
+      <div><dt>Tools</dt><dd>CAD · Arduino · laser cutter</dd></div>
+      <div><dt>Recognition</dt><dd>Blanes Research Competition 2020</dd></div>
+    </dl>
+
+    <section class="cs-section">
+      <h3>Context</h3>
+      <!-- DRAFT -->
+      <p>Good sim-racing pedals are expensive. I set out to see whether a student could design, build and sell an affordable alternative, and what it takes to turn an idea into a company.</p>
+    </section>
+
+    <section class="cs-section">
+      <h3>My role</h3>
+      <!-- DRAFT -->
+      <p>I did the whole project: market analysis, mechanical design, electronics and firmware, manufacturing of the prototypes, business plan and the social-media campaign.</p>
+    </section>
+
+    <section class="cs-section">
+      <h3>Approach</h3>
+      <!-- DRAFT -->
+      <p>I analysed the forces on the pedal lever to size the mechanism, modelled it in CAD and built the prototypes with my own laser cutter. The electronics read Hall-effect sensors and a load cell through Arduino.</p>
+      <div class="cs-figs">
+        <figure class="cs-fig"><img src="img/research-project/08.jpg" alt=""><figcaption>Force diagram on the pedal lever</figcaption></figure>
+        <figure class="cs-fig"><img src="img/research-project/05.jpg" alt=""><figcaption>CAD design of the pedal</figcaption></figure>
+      </div>
+      <div class="cs-figs">
+        <figure class="cs-fig"><img src="img/research-project/10.jpg" alt=""><figcaption>Laser-cut prototype</figcaption></figure>
+        <figure class="cs-fig"><img src="img/research-project/22.jpg" alt=""><figcaption>PCB design</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="cs-section">
+      <h3>Results</h3>
+      <!-- DRAFT -->
+      <p>A working set of pedals, tested in a rally simulator, plus a handbrake and a gear shifter, a website and a launch campaign. The project was entered in the 2020 Blanes Research Project Competition.</p>
+      <figure class="cs-video"><video controls playsinline preload="none" poster="video/research-project-03.jpg"><source src="video/research-project-03.mp4" type="video/mp4"></video><figcaption>Testing the pedals in a rally simulator</figcaption></figure>
+    </section>
+
+    <div class="cs-cta">
+      <a class="btn primary" href="docs/research-project-presentation.pdf" target="_blank" rel="noopener">View full presentation</a>
+      <a class="btn ghost" href="https://alexjir22011.wixsite.com/website-1/pedal" target="_blank" rel="noopener">AlexSim website ↗</a>
+      <a class="btn ghost" href="docs/research-project-poster.pdf" target="_blank" rel="noopener">Poster</a>
+    </div>
+  </template>
+
+  <!-- ===================== CNC LASER CUTTER ===================== -->
+  <template id="cs-cnc" data-meta="Personal project · 2019" data-title="Design and build of a CNC laser cutter">
+    <img class="cs-hero" src="img/cnc/02.jpg" alt="The laser cutter in operation">
+    <!-- DRAFT -->
+    <p class="cs-lead">A laser cutting and engraving machine designed and built from scratch, which then became my workshop tool for prototyping.</p>
+    <dl class="cs-facts">
+      <div><dt>Role</dt><dd>Design and build</dd></div>
+      <div><dt>Tools</dt><dd>CAD · 3D printing · CNC</dd></div>
+    </dl>
+
+    <section class="cs-section">
+      <h3>Context</h3>
+      <!-- DRAFT -->
+      <p>To prototype my own projects I needed a way to cut and engrave parts quickly and cheaply, so I decided to build the machine myself.</p>
+    </section>
+
+    <section class="cs-section">
+      <h3>Approach</h3>
+      <!-- DRAFT -->
+      <p>I modelled the axis carriages and blocks in 3D, printed the parts, assembled the mechanics and the control electronics, and tuned the machine.</p>
+      <div class="cs-figs">
+        <figure class="cs-fig"><img src="img/cnc/03.jpg" alt=""><figcaption>Y-axis carriage</figcaption></figure>
+        <figure class="cs-fig"><img src="img/cnc/06.jpg" alt=""><figcaption>3D-printed carriage with stepper motor</figcaption></figure>
+      </div>
+      <figure class="cs-video"><video controls playsinline preload="none" poster="video/cnc-02.jpg"><source src="video/cnc-02.mp4" type="video/mp4"></video><figcaption>Timelapse of the 3D design of a part</figcaption></figure>
+    </section>
+
+    <section class="cs-section">
+      <h3>Results</h3>
+      <!-- DRAFT -->
+      <p>A working laser cutter that I later used to manufacture the AlexSim prototypes.</p>
+      <figure class="cs-video"><video controls playsinline preload="none" poster="video/cnc-01.jpg"><source src="video/cnc-01.mp4" type="video/mp4"></video><figcaption>First tests of the cutter in operation</figcaption></figure>
+    </section>
+
+    <div class="cs-cta">
+      <a class="btn ghost" href="docs/CNC-Y-axis-carriage.pdf" target="_blank" rel="noopener">Y-axis carriage drawing</a>
+      <a class="btn ghost" href="docs/CNC-Y-axis-carriage-exploded.pdf" target="_blank" rel="noopener">Exploded view</a>
+      <a class="btn ghost" href="docs/CNC-Y-axis-block.pdf" target="_blank" rel="noopener">Y-axis block drawing</a>
+    </div>
+  </template>
+
+  <script>
     const dlg = document.getElementById('project');
+    const body = document.getElementById('p-body');
     const lb = document.getElementById('lightbox');
-    let cur = null, idx = 0;
+    let figs = [], idx = 0;
 
     function openProject(key) {
-      const p = PROJECTS[key]; cur = p;
-      document.getElementById('p-meta').textContent = p.meta;
-      document.getElementById('p-title').textContent = p.title;
-      document.getElementById('p-docs').innerHTML = p.docs.map(([n, u, s, t]) =>
-        `<a class="doc" href="${u}" target="_blank" rel="noopener"><span class="pdf${t === 'web' ? ' web' : ''}">${t === 'web' ? 'WEB ↗' : 'PDF'}</span>${n}<small>${s}</small></a>`).join('');
-      document.getElementById('p-gallery').innerHTML = p.imgs.map(([f, c], i) =>
-        `<figure data-i="${i}"><img src="img/${f}-t.jpg" alt="${c}" loading="lazy"><figcaption>${c}</figcaption></figure>`).join('');
-      document.getElementById('p-conf').style.display = p.conf ? '' : 'none';
-      const vids = p.vids || [];
-      document.getElementById('p-vids-wrap').style.display = vids.length ? '' : 'none';
-      document.getElementById('p-vids').innerHTML = vids.map(([f, c]) =>
-        `<figure><video controls playsinline preload="none" poster="video/${f}.jpg"><source src="video/${f}.mp4" type="video/mp4"></video><figcaption>${c}</figcaption></figure>`).join('');
+      const tpl = document.getElementById('cs-' + key);
+      if (!tpl) return;
+      document.getElementById('p-meta').textContent = tpl.dataset.meta || '';
+      document.getElementById('p-title').textContent = tpl.dataset.title || '';
+      body.replaceChildren(tpl.content.cloneNode(true));
+      figs = [...body.querySelectorAll('.cs-hero, .cs-fig img')];
+      figs.forEach((img, i) => img.addEventListener('click', () => showImg(i)));
+      body.querySelectorAll('a').forEach(a => { if (!a.target && /^(https?:|docs\/)/.test(a.getAttribute('href'))) { a.target = '_blank'; a.rel = 'noopener'; } });
       dlg.showModal(); dlg.scrollTop = 0;
     }
     function showImg(i) {
-      idx = (i + cur.imgs.length) % cur.imgs.length;
-      const [f, c] = cur.imgs[idx];
-      document.getElementById('lb-img').src = `img/${f}.jpg`;
-      document.getElementById('lb-img').alt = c;
-      document.getElementById('lb-cap').textContent = `${c}  ·  ${idx + 1}/${cur.imgs.length}`;
+      if (!figs.length) return;
+      idx = (i + figs.length) % figs.length;
+      const img = figs[idx];
+      const cap = img.closest('figure')?.querySelector('figcaption')?.textContent || img.alt || '';
+      document.getElementById('lb-img').src = img.currentSrc || img.src;
+      document.getElementById('lb-img').alt = cap;
+      document.getElementById('lb-cap').textContent = figs.length > 1 ? `${cap}  ·  ${idx + 1}/${figs.length}` : cap;
       if (!lb.open) lb.showModal();
     }
     const closeLb = () => lb.close();
 
-    document.querySelectorAll('.card[data-p]').forEach(card => {
-      const k = card.dataset.p, p = PROJECTS[k];
-      card.querySelector('.open-btn').insertAdjacentHTML('beforeend', `<span class="counts">${p.imgs.length} img · ${p.vids ? p.vids.length + (p.vids.length === 1 ? ' video · ' : ' videos · ') : ''}${p.docs.filter(d => d[3] !== 'web').length} pdf</span>`);
-      card.addEventListener('click', () => openProject(k));
-    });
+    document.querySelectorAll('.card[data-p]').forEach(card => card.addEventListener('click', () => openProject(card.dataset.p)));
     document.getElementById('p-close').onclick = () => dlg.close();
-    dlg.addEventListener('close', () => document.querySelectorAll('#p-vids video').forEach(v => v.pause()));
+    dlg.addEventListener('close', () => body.querySelectorAll('video').forEach(v => v.pause()));
     dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
-    document.getElementById('p-gallery').addEventListener('click', e => {
-      const fig = e.target.closest('figure'); if (fig) showImg(+fig.dataset.i);
-    });
     document.getElementById('lb-close').onclick = closeLb;
     document.getElementById('lb-prev').onclick = e => { e.stopPropagation(); showImg(idx - 1); };
     document.getElementById('lb-next').onclick = e => { e.stopPropagation(); showImg(idx + 1); };

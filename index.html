@@ -176,6 +176,7 @@
     .cs-fig img:hover { transform: scale(1.01); }
     .cs-video video { display: block; width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 14px; object-fit: contain; }
     .cs-fig figcaption, .cs-video figcaption { font-size: .82rem; color: var(--muted); margin-top: 8px; text-align: center; }
+    .cs-figs + p, .cs-fig + p, .cs-video + p { margin-top: 20px; }
     .cs-figs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .cs-figs .cs-fig img { aspect-ratio: 4/3; }
     .cs-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 6px 0 18px; }
@@ -341,7 +342,7 @@
           <div class="card-body">
             <p class="meta">2024 · BSc in Industrial Technology Engineering · UdG</p>
             <h3>Finite elements and machine learning applied to aluminium quenching</h3>
-            <p>For Kautec Solutions I developed TermoPixel, a finite-element thermal simulator that models conduction, nozzle spraying and the Leidenfrost effect in aluminium profiles. On top of it, a genetic algorithm searches for the nozzle configuration that gives the fastest and most uniform cooling.</p>
+            <p>A fast finite-element thermal simulator (TermoPixel) and a genetic algorithm that automatically find the nozzle configuration that quenches extruded aluminium profiles quickly and evenly, using less water. Developed for Kautec Solutions; it became the basis of their GOTA software.</p>
             <div class="highlight">34× faster than Ansys (max. error 3.8%), with machine learning tuning 33 cooler parameters: −56% water flow for the same result. Presented at the 30th Premis Patronat Politècnica.</div>
             <a class="weblink" href="https://aluminium-journal.com/next-generation-quenching-for-high-performance-extrusion" target="_blank" rel="noopener" onclick="event.stopPropagation()">This work became Kautec's GOTA software · ALUMINIUM journal ↗</a>
             <div class="chips">
@@ -360,7 +361,7 @@
           <div class="card-body">
             <p class="meta">2019 · High-school research project (Treball de Recerca)</p>
             <h3>AlexSim: from an idea to a company</h3>
-            <p>Design, construction and sale of sim-racing devices. I analysed the market, designed and validated the pedals, developed the electronics with Hall-effect sensors and strain gauges on Arduino, built the prototypes with my own laser cutter, and organised production and a social-media campaign.</p>
+            <p>My high-school research project: taking the idea of a sim-racing pedal set from a sketch to a small company. Market analysis, mechanical design checked with calculations, electronics, a laser cutter built by myself, prototype, website and launch campaign.</p>
             <div class="highlight">Entered in the 2020 Blanes Research Project Competition (Concurs de Treballs de Recerca).</div>
             <a class="weblink" href="https://alexjir22011.wixsite.com/website-1/pedal" target="_blank" rel="noopener" onclick="event.stopPropagation()">Visit the AlexSim website ↗</a>
             <div class="chips">
@@ -477,32 +478,31 @@
   <!-- ===================== MASTER'S THESIS ===================== -->
   <template id="cs-msc" data-meta="Master's thesis · 2026 · MSc in Industrial Engineering · UdG" data-title="FDD system for HVAC units">
     <img class="cs-hero" src="img/msc-thesis/02.jpg" alt="Diagram of the hybrid adiabatic HVAC unit">
-    <!-- DRAFT -->
-    <p class="cs-lead">A digital-twin-based system that detects and diagnoses faults in industrial HVAC units before they turn into breakdowns or wasted energy.</p>
+    <p class="cs-lead">A digital-twin-based system that detects and diagnoses faults in industrial HVAC units, including the silent degradation that control loops hide until it becomes a breakdown or a waste of energy.</p>
     <dl class="cs-facts">
       <div><dt>Role</dt><dd>Sole developer</dd></div>
       <div><dt>Partners</dt><dd>PROISOTEC GRUP Digital Twin · TAVIL</dd></div>
-      <div><dt>Tools</dt><dd>MATLAB · Simulink</dd></div>
+      <div><dt>Tutor</dt><dd>Joan Colomer Llinàs · UdG</dd></div>
+      <div><dt>Tools</dt><dd>MATLAB · Simulink · Python</dd></div>
       <div><dt>Recognition</dt><dd>🏆 Best MEI Master's Thesis</dd></div>
     </dl>
     <p class="cs-note">🔒 Confidential work carried out for a company, so only a small part of the project is shown.</p>
 
     <section class="cs-section">
       <h3>Context</h3>
-      <!-- DRAFT -->
-      <p>TAVIL's plant is cooled by 84 hybrid adiabatic HVAC units. Their control loops compensate for gradual degradation, so faults stay hidden from the alarms until they cause a breakdown or a significant loss of efficiency.</p>
+      <p>The TAVIL plant is cooled by 84 hybrid adiabatic HVAC units. When their performance drops gradually, the PID controllers compensate for it and no alarm goes off. Neither reactive maintenance nor scheduled preventive maintenance catches this silent degradation in time, so it shows up later as a breakdown or as extra energy consumption.</p>
     </section>
 
     <section class="cs-section">
       <h3>My role</h3>
-      <!-- DRAFT -->
-      <p>I designed and implemented the whole system: the thermodynamic model of the unit, the digital twin, the diagnosis engine and its validation with real plant data.</p>
+      <p>I designed and implemented the whole system: the thermodynamic model of the unit, the Simulink digital twin, the data pipeline, the diagnosis engine, the daily reports and the validation with real plant data. I also wrote the feasibility study and budget.</p>
     </section>
 
     <section class="cs-section">
       <h3>Approach</h3>
-      <!-- DRAFT -->
-      <p>A digital twin in Simulink computes how each unit should behave under the current conditions. The difference between the real and the expected behaviour is compared against a fault signature matrix, which links each pattern of deviations to its root cause.</p>
+      <p>The core is a Simulink digital twin that reproduces the nominal, fault-free behaviour of the unit. From the real outdoor conditions it generates a reference profile, which is compared with what the plant sensors measure. A four-stage state machine (free cooling, indirect, direct and hybrid) lets the system interpret each deviation in the right operating mode.</p>
+      <p>The diagnosis algorithm combines the relative error between measured and simulated values with expert know-how, encoded in a fault signature matrix that links each pattern of deviating variables to its possible root causes. It replaces the manual interpretation a technician makes when facing an unknown fault, and it runs continuously, so it also catches problems that are not yet catastrophic. The matrix is a plain file, so it can be updated without touching the code.</p>
+      <p>Around the model there is a decoupled pipeline that downloads the plant data through the Siemens Horizon API, cleans it, runs the simulation, detects deviations, diagnoses causes and generates the daily reports for all 84 units.</p>
       <div class="cs-figs">
         <figure class="cs-fig"><img src="img/msc-thesis/03.jpg" alt=""><figcaption>Digital twin of the unit in Simulink</figcaption></figure>
         <figure class="cs-fig"><img src="img/msc-thesis/05.jpg" alt=""><figcaption>Fault signature matrix</figcaption></figure>
@@ -514,10 +514,12 @@
       <h3>Results</h3>
       <div class="cs-stats">
         <div><strong>84</strong><span>HVAC units covered</span></div>
+        <div><strong>3/3</strong><span>controlled faults correctly diagnosed</span></div>
         <div><strong>🏆</strong><span>Best MEI Master's Thesis Award</span></div>
       </div>
-      <!-- DRAFT -->
-      <p>Validated with real plant data: the system identifies the degradation of the adiabatic subsystem and compressor shutdowns, each with its own thermodynamic signature. The thesis received the Best MEI Master's Thesis Award from <a href="https://www.linkedin.com/posts/enginyeriaindustrial-talentenginyer-innovaciaej-ugcPost-7520419120165752832-ToW3/" target="_blank" rel="noopener">Enginyers Industrials de Catalunya ↗</a>.</p>
+      <p>The system was validated with faults deliberately induced on real units of the pilot plant during three summer days: a full cut of the water supply to the evaporative panels, a 50% restriction of the water flow to one pump, and a shutdown of the compressor. In all three cases the algorithm identified the right subsystem, the time window and the relative severity of the fault, with no thermodynamically wrong diagnosis. It told the full panel failure from the partial one, and it also separated a water-circuit fault from a compression-circuit one.</p>
+      <p>Three cases do not prove the method in general, and the thesis says so: the next steps are testing the remaining faults of the catalogue, reducing false alarms at stage changes with an adaptive guard time, and recalibrating the model for extreme outdoor temperatures. The architecture is also prepared for new data sources and for other facilities, such as hospital ICUs, and the labelled fault history opens the door to machine-learning classifiers and remaining-useful-life models.</p>
+      <p>The thesis received the Best MEI Master's Thesis Award from <a href="https://www.linkedin.com/posts/enginyeriaindustrial-talentenginyer-innovaciaej-ugcPost-7520419120165752832-ToW3/" target="_blank" rel="noopener">Enginyers Industrials de Catalunya ↗</a>.</p>
     </section>
 
     <div class="cs-cta">
@@ -528,11 +530,11 @@
   <!-- ===================== BACHELOR'S THESIS ===================== -->
   <template id="cs-bsc" data-meta="Bachelor's thesis · 2024 · BSc in Industrial Technology Engineering · UdG" data-title="Finite elements and machine learning applied to aluminium quenching">
     <img class="cs-hero" src="img/bsc-thesis/06.jpg" alt="Aluminium profile on the extrusion line">
-    <!-- DRAFT -->
     <p class="cs-lead">A fast thermal simulator and a genetic algorithm that find the best nozzle configuration to quench extruded aluminium profiles.</p>
     <dl class="cs-facts">
       <div><dt>Role</dt><dd>R&amp;D intern</dd></div>
       <div><dt>Company</dt><dd>Kautec Solutions</dd></div>
+      <div><dt>Tutors</dt><dd>Albert Massaguer · Carolina Madeira (UdG)</dd></div>
       <div><dt>Tools</dt><dd>MATLAB · Ansys</dd></div>
       <div><dt>Outcome</dt><dd>GOTA software</dd></div>
     </dl>
@@ -540,21 +542,19 @@
 
     <section class="cs-section">
       <h3>Context</h3>
-      <!-- DRAFT -->
-      <p>After extrusion, aluminium profiles have to be cooled quickly and evenly. Uneven cooling bends the profile (as in the photo above), and finding the right setting for the quenching table's many parameters was a slow process of trial and error.</p>
+      <p>After extrusion, aluminium profiles have to be cooled quickly and evenly. Uneven cooling creates an asymmetric temperature gradient that twists the profile, which can crash into the quenching machine and cause damage and costly stoppages. Kautec's machines use adjustable high-pressure nozzles that can reach cooling rates of about 100 °C/s, but they were set up by hand: the operator starts with the maximum flow and corrects by eye, wasting material and time.</p>
       <figure class="cs-fig"><img src="img/bsc-thesis/05.jpg" alt=""><figcaption>Kautec nozzle quenching table</figcaption></figure>
     </section>
 
     <section class="cs-section">
       <h3>My role</h3>
-      <!-- DRAFT -->
-      <p>I developed TermoPixel, a finite-element heat-transfer simulator, and the machine learning optimiser built on top of it.</p>
+      <p>I developed TermoPixel, a finite-element heat-transfer simulator, and the machine learning optimiser built on top of it, and validated both against Ansys.</p>
     </section>
 
     <section class="cs-section">
       <h3>Approach</h3>
-      <!-- DRAFT -->
-      <p>The simulator models conduction inside the profile, the spray of each nozzle and the Leidenfrost effect. A genetic algorithm then searches the configuration of the cooler that gives the fastest and most uniform cooling.</p>
+      <p>TermoPixel works on a structured mesh, so it keeps only the essential physics: conduction inside the profile, the heat extraction of each nozzle, the overlap of neighbouring spray cones, and the Leidenfrost effect, which changes the convection coefficient with the surface temperature. Vectorisation and algorithm optimisation make it fast enough to be run thousands of times.</p>
+      <p>A genetic algorithm then uses the simulator to search the flow and orientation of every nozzle. Its objective function rewards a fast and symmetric cooling and penalises water consumption.</p>
       <div class="cs-figs">
         <figure class="cs-fig"><img src="img/bsc-thesis/07.jpg" alt=""><figcaption>Boiling curve and Leidenfrost effect</figcaption></figure>
         <figure class="cs-fig"><img src="img/bsc-thesis/09.jpg" alt=""><figcaption>Spray cone overlap and volumetric flux</figcaption></figure>
@@ -567,9 +567,10 @@
       <div class="cs-stats">
         <div><strong>34×</strong><span>faster than Ansys</span></div>
         <div><strong>3.8%</strong><span>maximum error</span></div>
-        <div><strong>−56%</strong><span>water flow for the same result</span></div>
+        <div><strong>−24.7%</strong><span>water flow in the real case</span></div>
       </div>
-      <!-- DRAFT -->
+      <p>Against Ansys, TermoPixel runs a reference case in 36 s instead of about 20 min, with a maximum relative error of 3.81% (2 mm mesh) and 4.62% (5 mm mesh), and it is robust to changes in the time step. The optimiser finds good configurations in 2.5 to 10 minutes.</p>
+      <p>In a real case with 15 nozzles on a 100×100 square tube, the optimised configuration gave a more symmetric temperature distribution than the standard setting (all nozzles straight, maximum flow), so less deformation is expected. It also cut the coolant flow from 150 to 113 l/min, which also lowers the pump energy consumption.</p>
       <p>The tool became Kautec's GOTA software, <a href="https://aluminium-journal.com/next-generation-quenching-for-high-performance-extrusion" target="_blank" rel="noopener">featured in ALUMINIUM journal ↗</a>. The project was presented at the 30th Premis Patronat Politècnica.</p>
     </section>
 
@@ -582,31 +583,30 @@
   <!-- ===================== RESEARCH PROJECT ===================== -->
   <template id="cs-research" data-meta="High-school research project · 2019 · Treball de Recerca" data-title="AlexSim: from an idea to a company">
     <img class="cs-hero" src="img/research-project-cover.jpg" alt="Render of the AlexSim pedal set">
-    <!-- DRAFT -->
     <p class="cs-lead">From a sketch to a small company: designing, building and selling sim-racing pedals.</p>
     <dl class="cs-facts">
       <div><dt>Role</dt><dd>Everything, end to end</dd></div>
       <div><dt>Products</dt><dd>Pedals · handbrake · shifter</dd></div>
       <div><dt>Tools</dt><dd>CAD · Arduino · laser cutter</dd></div>
+      <div><dt>Context</dt><dd>INS Serrallarga, Blanes · 2nd Batxillerat</dd></div>
       <div><dt>Recognition</dt><dd>Blanes Research Competition 2020</dd></div>
     </dl>
 
     <section class="cs-section">
       <h3>Context</h3>
-      <!-- DRAFT -->
-      <p>Good sim-racing pedals are expensive. I set out to see whether a student could design, build and sell an affordable alternative, and what it takes to turn an idea into a company.</p>
+      <p>I wanted a rally simulator, but a good one costs around €3,000, and the premium pedal sets of the market go from €2,400 to €3,300 for a full pack. I decided to design my own set and, halfway through, realised the work could become a company for sim-racing enthusiasts. The project documents the whole path: how to analyse the market, design, test, build, finance and sell a product.</p>
     </section>
 
     <section class="cs-section">
       <h3>My role</h3>
-      <!-- DRAFT -->
-      <p>I did the whole project: market analysis, mechanical design, electronics and firmware, manufacturing of the prototypes, business plan and the social-media campaign.</p>
+      <p>I did the whole project: market analysis and business plan, mechanical design and calculations, electronics and firmware, building the tools and prototype, the brand, the website and the social-media campaign.</p>
     </section>
 
     <section class="cs-section">
       <h3>Approach</h3>
-      <!-- DRAFT -->
-      <p>I analysed the forces on the pedal lever to size the mechanism, modelled it in CAD and built the prototypes with my own laser cutter. The electronics read Hall-effect sensors and a load cell through Arduino.</p>
+      <p><strong>Market.</strong> I compared Logitech, Thrustmaster, Fanatec and Heusinkveld by price, quality and target customer, and found the gap: high-end features (pressure sensors, Hall-effect position sensing, adjustable response) at an affordable price, produced on demand to avoid a large initial investment.</p>
+      <p><strong>Design.</strong> A real pedal does not behave like a simple spring. I analysed the forces on the lever to size an elastomer-based mechanism with adjustable travel, stiffness and height, so the same pedal can act as accelerator, brake or clutch. The position is read with a Hall-effect sensor and a magnet, and the pressure with load cells, both through 12-bit analogue inputs.</p>
+      <p><strong>Electronics and prototype.</strong> The electronics and firmware run on Arduino. To make the parts I assembled and improved a 3D printer (my mods were printed by 1,800 people through Thingiverse) and then built a 15 W laser cutter with it.</p>
       <div class="cs-figs">
         <figure class="cs-fig"><img src="img/research-project/08.jpg" alt=""><figcaption>Force diagram on the pedal lever</figcaption></figure>
         <figure class="cs-fig"><img src="img/research-project/05.jpg" alt=""><figcaption>CAD design of the pedal</figcaption></figure>
@@ -615,12 +615,13 @@
         <figure class="cs-fig"><img src="img/research-project/10.jpg" alt=""><figcaption>Laser-cut prototype</figcaption></figure>
         <figure class="cs-fig"><img src="img/research-project/22.jpg" alt=""><figcaption>PCB design</figcaption></figure>
       </div>
+      <p><strong>Company.</strong> I defined a minimalist brand (AlexSim, black, white and orange), built the website, set up an Excel tool that turns an order into a list of parts to buy, with cost and profit, and designed a social-media and influencer campaign. To finance the first batch I created two small side businesses, LED lights for electric scooters and design keyrings.</p>
     </section>
 
     <section class="cs-section">
       <h3>Results</h3>
-      <!-- DRAFT -->
-      <p>A working set of pedals, tested in a rally simulator, plus a handbrake and a gear shifter, a website and a launch campaign. The project was entered in the 2020 Blanes Research Project Competition.</p>
+      <p>I built a working prototype that behaves as the calculations predicted: robust and compact, even though I made it with 5 mm panels instead of the 2.5 mm of the original design. The laser cutter turned out very precise but too slow to cut thick wood, so I cut the final prototype by hand, while it works well for engraving. I also finished the website and the campaign material. The crowdfunding campaign was prepared but not completed, so the company was left ready to start financing rather than launched.</p>
+      <p>The project was entered in the 2020 Blanes Research Project Competition. Beyond the product, it taught me what it takes to start a company from scratch: a lot of effort, and the need to be passionate about what you are getting into.</p>
       <figure class="cs-video"><video controls playsinline preload="none" poster="video/research-project-03.jpg"><source src="video/research-project-03.mp4" type="video/mp4"></video><figcaption>Testing the pedals in a rally simulator</figcaption></figure>
     </section>
 

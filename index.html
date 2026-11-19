@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Álex Jiménez Ruiz · Industrial Engineer</title>
+  <meta name="description" content="Portfolio of Álex Jiménez Ruiz, industrial engineer: HVAC fault detection, thermal simulation and machine learning, mechanical design and manufacturing.">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://alexitojr9.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://alexitojr9.github.io/">
+  <meta property="og:title" content="Álex Jiménez Ruiz · Industrial Engineer">
+  <meta property="og:description" content="Simulation and digital twins, machine design and R&amp;D. Projects, presentations and CV.">
+  <meta property="og:image" content="https://alexitojr9.github.io/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Álex Jiménez Ruiz, industrial engineer">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Álex Jiménez Ruiz · Industrial Engineer">
+  <meta name="twitter:description" content="Simulation and digital twins, machine design and R&amp;D. Projects, presentations and CV.">
+  <meta name="twitter:image" content="https://alexitojr9.github.io/img/og-image.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --alt: #f5f5f7;
+      --ink: #1d1d1f;
+      --muted: #6e6e73;
+      --line: #d2d2d7;
+      --blue: #0071e3;
+      --blue-hover: #0077ed;
+      --blue-soft: #e8f2fd;
+      --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Helvetica Neue", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); color: var(--ink); background: var(--bg); line-height: 1.5; -webkit-font-smoothing: antialiased; letter-spacing: -0.01em; }
+    a { color: inherit; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+    /* Navigation */
+    nav { position: sticky; top: 0; z-index: 10; background: rgba(255, 255, 255, .8); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(0, 0, 0, .08); }
+    nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 48px; }
+    .logo { font-size: .95rem; font-weight: 600; text-decoration: none; }
+    .logo span { display: none; }
+    nav ul { display: flex; gap: 28px; list-style: none; }
+    nav ul a { text-decoration: none; font-size: .78rem; color: var(--ink); opacity: .8; transition: opacity .2s; }
+    nav ul a:hover { opacity: 1; }
+    nav ul a.nav-cv { color: var(--blue); opacity: 1; }
+
+    /* Hero */
+    .hero { padding: 96px 0 104px; text-align: center; }
+    .hero-grid { display: flex; flex-direction: column; align-items: center; }
+    .portrait { order: -1; margin: 0 0 28px; }
+    .avatar { display: block; width: 148px; height: 148px; border-radius: 50%; object-fit: cover; }
+    .portrait figcaption, .titleblock { display: none; }
+    .tag { font-size: 1.3rem; font-weight: 600; color: var(--blue); margin-bottom: 6px; }
+    .hero h1 { font-size: clamp(2.8rem, 7vw, 5rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.035em; }
+    .hero p.lead { margin: 22px auto 0; font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--muted); max-width: 40ch; line-height: 1.4; }
+    .cta { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; align-items: center; }
+    .btn { display: inline-flex; align-items: center; padding: 12px 24px; border-radius: 980px; text-decoration: none; font-size: 1rem; transition: background .2s, color .2s; }
+    .btn.primary { background: var(--blue); color: #fff; }
+    .btn.primary:hover { background: var(--blue-hover); }
+    .btn.ghost { color: var(--blue); border: 1px solid var(--blue); }
+    .btn.ghost:hover { background: var(--blue); color: #fff; }
+    .cv-group { display: inline-flex; align-items: center; border-radius: 980px; background: var(--alt); padding: 4px; font-size: .95rem; }
+    .cv-group span { padding: 8px 12px 8px 16px; color: var(--muted); }
+    .cv-group a { padding: 8px 16px; border-radius: 980px; text-decoration: none; color: var(--blue); font-weight: 500; transition: background .2s, color .2s; }
+    .cv-group a:hover { background: var(--blue); color: #fff; }
+
+    /* Sections */
+    section { padding: 100px 0; }
+    #experience, #skills { background: var(--alt); }
+    .section-head { text-align: center; margin-bottom: 56px; }
+    .section-head .num { display: none; }
+    .section-head h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.08; }
+
+    /* About */
+    .about { display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; align-items: start; }
+    .about p { font-size: 1.15rem; color: var(--ink); margin-bottom: 18px; line-height: 1.6; }
+    .facts { background: var(--alt); border-radius: 22px; padding: 8px 26px; }
+    .facts dl > div { padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .facts dl > div:last-child { border-bottom: 0; }
+    .facts dt { font-size: .78rem; color: var(--muted); margin-bottom: 2px; }
+    .facts dt:empty { display: none; }
+    .facts dd { font-size: 1rem; font-weight: 500; }
+
+    /* Experience */
+    .xp { max-width: 820px; margin: 0 auto; }
+    .xp-row { display: grid; grid-template-columns: 140px 1fr; gap: 28px; padding: 28px 0; border-top: 1px solid var(--line); }
+    .xp-row:last-child { border-bottom: 1px solid var(--line); }
+    .xp-when { font-size: .95rem; color: var(--muted); padding-top: 3px; }
+    .xp-what h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.015em; line-height: 1.25; }
+    .xp-org { color: var(--blue); font-weight: 500; margin: 2px 0 8px; }
+    .xp-links { margin-left: 14px; font-size: .85rem; font-weight: 400; }
+    .xp-links a { text-decoration: none; color: var(--blue); margin-right: 12px; }
+    .xp-links a:hover { text-decoration: underline; }
+    .xp-what p:last-child { color: var(--muted); font-size: 1rem; line-height: 1.55; }
+
+    /* Projects */
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .card { background: var(--alt); border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; cursor: pointer; transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s; }
+    .card:hover { transform: scale(1.012); box-shadow: 0 18px 40px rgba(0, 0, 0, .08); }
+    .thumb { aspect-ratio: 16 / 10; overflow: hidden; background: #fbfbfd; }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .thumb img.contain { object-fit: contain; padding: 14px; background: #fff; }
+    .thumb img.top { object-position: top; }
+    .thumb.render { background: #1c2a35; }
+    .thumb.render img { object-fit: contain; }
+    .badge { display: none; }
+    .card-body { padding: 28px 30px 30px; display: flex; flex-direction: column; flex: 1; }
+    .meta { font-size: .8rem; font-weight: 600; color: var(--blue); margin-bottom: 8px; }
+    .card h3 { font-size: 1.6rem; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .card p { color: var(--muted); font-size: 1rem; flex: 1; line-height: 1.55; }
+    .card .meta { flex: none; }
+    .highlight { margin-top: 16px; font-size: .95rem; color: var(--ink); font-weight: 500; }
+    .award { display: flex; align-items: center; gap: 10px; margin-top: 16px; padding: 12px 16px; border-radius: 14px; background: var(--blue-soft); text-decoration: none; font-size: .9rem; line-height: 1.35; color: var(--ink); transition: background .2s; }
+    .award:hover { background: #dcebfc; }
+    .award-ico { font-size: 1.2rem; } .award-go { margin-left: auto; color: var(--blue); }
+    .weblink { display: inline-block; margin-top: 14px; font-size: .95rem; color: var(--blue); text-decoration: none; }
+    .weblink:hover { text-decoration: underline; }
+    .chips { display: flex; flex-wrap: wrap; gap: 4px 0; margin: 18px 0 22px; font-size: .82rem; color: var(--muted); }
+    .chip + .chip::before { content: "·"; margin: 0 8px; }
+    .pres-btn { display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; margin-bottom: 14px; padding: 10px 20px; border-radius: 980px; background: var(--blue); color: #fff; text-decoration: none; font-size: .95rem; transition: background .2s; }
+    .pres-btn:hover { background: var(--blue-hover); }
+    .pres-btn span, .pres-btn small { display: none; }
+    .open-btn { margin-top: auto; align-self: flex-start; background: none; border: 0; padding: 0; font: inherit; font-size: .95rem; color: var(--blue); cursor: pointer; display: inline-flex; align-items: center; gap: 4px; }
+    .card:hover .open-btn { text-decoration: underline; }
+    .counts { display: none; }
+
+    /* Skills */
+    .skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .skill-group { background: #fff; border-radius: 22px; padding: 28px; }
+    .skill-group h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 14px; letter-spacing: -0.01em; }
+    .skill-group ul { list-style: none; display: grid; gap: 6px; color: var(--muted); font-size: .98rem; }
+
+    /* Contact */
+    .contact { text-align: center; padding: 110px 0 120px; }
+    .contact .tag { display: none; }
+    .contact h2 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 700; letter-spacing: -0.035em; }
+    .contact p { color: var(--muted); margin: 16px auto 34px; max-width: 44ch; font-size: 1.2rem; }
+    .links { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; align-items: center; }
+
+    footer { background: var(--alt); border-top: 1px solid var(--line); font-size: .75rem; color: var(--muted); }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding-top: 18px; padding-bottom: 18px; }
+
+    /* Project dialog */
+    dialog.project { margin: auto; border: 0; padding: 0; width: min(1000px, 94vw); max-height: 90vh; border-radius: 24px; background: #fff; color: var(--ink); box-shadow: 0 30px 80px rgba(0, 0, 0, .25); }
+    dialog.project { scrollbar-width: none; -ms-overflow-style: none; }
+    dialog.project::-webkit-scrollbar { display: none; }
+    dialog.project::backdrop { background: rgba(0, 0, 0, .4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+    .p-head { position: sticky; top: 0; z-index: 2; background: rgba(255,255,255,.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 26px 32px 18px; display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; border-bottom: 1px solid rgba(0,0,0,.06); }
+    .p-head .meta { margin: 0 0 4px; }
+    .p-head h2 { font-size: 1.8rem; font-weight: 700; line-height: 1.15; letter-spacing: -0.025em; }
+    .x { flex: none; width: 36px; height: 36px; border-radius: 50%; border: 0; background: var(--alt); color: var(--muted); font-size: 1.25rem; cursor: pointer; transition: background .2s; }
+    .x:hover { background: var(--line); color: var(--ink); }
+    .p-body { padding: 24px 32px 36px; }
+    .p-body h3 { font-size: 1.15rem; font-weight: 700; margin: 8px 0 14px; letter-spacing: -0.01em; }
+    .conf { font-size: .9rem; color: var(--muted); }
+    .conf-big { margin: 0 0 24px; padding: 12px 16px; background: var(--alt); border-radius: 14px; }
+    .docs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+    .doc { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 980px; background: var(--alt); text-decoration: none; font-size: .95rem; transition: background .2s, color .2s; }
+    .doc:hover { background: var(--blue); color: #fff; }
+    .doc .pdf { display: none; }
+    .doc small { font-size: .78rem; opacity: .6; }
+    .videos { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 32px; }
+    .videos figure { margin: 0; }
+    .videos video { width: 100%; aspect-ratio: 16/9; display: block; background: #000; object-fit: contain; border-radius: 14px; }
+    .videos figcaption, .gallery figcaption { font-size: .82rem; color: var(--muted); padding: 8px 2px 0; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px; }
+    .gallery figure { margin: 0; cursor: zoom-in; }
+    .gallery img { width: 100%; aspect-ratio: 4/3; object-fit: contain; display: block; background: var(--alt); border-radius: 14px; transition: transform .3s; }
+    .gallery figure:hover img { transform: scale(1.02); }
+
+    #lightbox { border: 0; margin: 0; width: 100vw; height: 100vh; max-width: none; max-height: none; background: rgba(255, 255, 255, .96); align-items: center; justify-content: center; flex-direction: column; padding: 20px; }
+    #lightbox[open] { display: flex; }
+    #lightbox::backdrop { background: transparent; }
+    #lightbox img { max-width: 92vw; max-height: 82vh; object-fit: contain; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,.12); background: #fff; }
+    #lightbox p { color: var(--muted); margin-top: 16px; font-size: .9rem; text-align: center; }
+    #lightbox button { position: absolute; background: var(--alt); color: var(--ink); border: 0; width: 44px; height: 44px; border-radius: 50%; font-size: 1.4rem; cursor: pointer; }
+    #lightbox button:hover { background: var(--line); }
+    #lb-close { top: 18px; right: 18px; } #lb-prev { left: 18px; top: 50%; } #lb-next { right: 18px; top: 50%; }
+
+    @media (max-width: 860px) {
+      .about, .projects { grid-template-columns: 1fr; }
+      .skills { grid-template-columns: repeat(2, 1fr); }
+      section { padding: 72px 0; }
+      .xp-row { grid-template-columns: 1fr; gap: 4px; }
+    }
+    @media (max-width: 600px) {
+      nav ul { gap: 16px; }
+      nav ul li:not(:last-child) { display: none; }
+      .hero { padding: 64px 0 72px; }
+      .skills { grid-template-columns: 1fr; }
+      .card-body { padding: 22px; }
+      #lb-prev, #lb-next { top: auto; bottom: 18px; }
+      .p-head, .p-body { padding-left: 20px; padding-right: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="wrap">
+      <a href="#" class="logo">Álex Jiménez</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="nav-cv" href="docs/CV_AlexJimenez_EN.pdf" target="_blank" rel="noopener">CV</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+      <p class="tag">Industrial engineer</p>
+      <h1>Hi, I'm Álex Jiménez.</h1>
+      <p class="lead">I model physical systems and turn them into useful tools: from digital twins that diagnose faults in HVAC units to thermal simulators powered by machine learning, and machines I design and build myself.</p>
+      <div class="cta">
+        <a href="#projects" class="btn primary">View projects →</a>
+        <a href="#contact" class="btn ghost">Get in touch</a>
+        <div class="cv-group"><span>CV</span><a href="docs/CV_AlexJimenez_EN.pdf" target="_blank" rel="noopener">EN</a><a href="docs/CV_AlexJimenez_ES.pdf" target="_blank" rel="noopener">ES</a></div>
+      </div>
+      </div>
+      <figure class="portrait">
+        <img class="avatar" src="img/profile.jpg" alt="Portrait of Álex Jiménez Ruiz" width="300" height="300">
+      </figure>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head"><h2>About me</h2></div>
+      <div class="about">
+        <div>
+          <p>I'm an industrial engineer from the University of Girona. I work where thermodynamics, simulation and data meet. For my Master's thesis, which won the Best MEI Master's Thesis Award from Enginyers Industrials de Catalunya, I developed a fault detection and diagnosis system for a fleet of 84 HVAC units. For my Bachelor's thesis I built a finite-element thermal simulator coupled with a genetic algorithm to optimise aluminium quenching.</p>
+          <p>I also like turning ideas into physical things. In high school I designed and built a CNC laser cutter and used it to prototype the pedals of a racing simulator, complete with its electronics, business plan and advertising campaign.</p>
+        </div>
+        <div class="facts">
+          <dl>
+            <div><dt>Education</dt><dd>MSc in Industrial Engineering · University of Girona · 2026</dd></div>
+            <div><dt></dt><dd>BSc in Industrial Technology Engineering · University of Girona · 2024</dd></div>
+            <div><dt>Location</dt><dd>Girona, Spain</dd></div>
+            <div><dt>Languages</dt><dd>Catalan · Spanish · English</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head"><h2>Experience</h2></div>
+      <div class="xp">
+        <div class="xp-row">
+          <div class="xp-when">2025 – 2026</div>
+          <div class="xp-what">
+            <h3>Digital Twins and Predictive Maintenance Lead</h3>
+            <p class="xp-org">Proisotec Digital Twin<span class="xp-links"><a href="https://www.proisotec.cat/ca" target="_blank" rel="noopener">Website ↗</a><a href="https://www.linkedin.com/company/proisotec/" target="_blank" rel="noopener">LinkedIn ↗</a></span></p>
+            <p>First employee of the digital twin department. Built the business line from scratch and delivered the FDD project for TAVIL, whose success turned Proisotec Digital Twin into an independent company.</p>
+          </div>
+        </div>
+        <div class="xp-row">
+          <div class="xp-when">2025</div>
+          <div class="xp-what">
+            <h3>Project Manager Intern</h3>
+            <p class="xp-org">ESPA<span class="xp-links"><a href="https://www.espa.com/corp-es/" target="_blank" rel="noopener">Website ↗</a><a href="https://www.linkedin.com/company/espa-group/" target="_blank" rel="noopener">LinkedIn ↗</a></span></p>
+            <p>Rolled out the APQP methodology across the industrial division and managed international projects as the technical link between customer and team.</p>
+          </div>
+        </div>
+        <div class="xp-row">
+          <div class="xp-when">2024</div>
+          <div class="xp-what">
+            <h3>Mechanical Engineer · Industrial Machinery Design</h3>
+            <p class="xp-org">Kautec Solutions<span class="xp-links"><a href="https://www.kautec.net/es/tecnologias-innovadoras/" target="_blank" rel="noopener">Website ↗</a><a href="https://www.linkedin.com/company/kautec-solutions/" target="_blank" rel="noopener">LinkedIn ↗</a></span></p>
+            <p>Promoted from the R&amp;D internship. Designed machinery for aluminium extrusion lines, validated through FEM analysis and designed for manufacturing.</p>
+          </div>
+        </div>
+        <div class="xp-row">
+          <div class="xp-when">2024</div>
+          <div class="xp-what">
+            <h3>R&amp;D Intern · Thermal simulation with machine learning</h3>
+            <p class="xp-org">Kautec Solutions<span class="xp-links"><a href="https://www.kautec.net/es/tecnologias-innovadoras/" target="_blank" rel="noopener">Website ↗</a><a href="https://www.linkedin.com/company/kautec-solutions/" target="_blank" rel="noopener">LinkedIn ↗</a></span></p>
+            <p>Developed the FEM heat-transfer simulator for aluminium quenching that became Kautec's GOTA software.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head"><h2>Projects</h2></div>
+      <div class="projects">
+
+        <!-- PROJECT 1 · MASTER'S THESIS -->
+        <article class="card" data-p="msc">
+          <div class="thumb t1">
+            <img class="contain" src="img/msc-thesis-fdd.jpg" alt="FDD system report: probability of each fault, temperatures and operating stage throughout the day" loading="lazy">
+          </div>
+          <div class="card-body">
+            <p class="meta">2026 · MSc in Industrial Engineering · UdG</p>
+            <h3>FDD system for HVAC units</h3>
+            <p>Design and implementation of a fault detection and diagnosis (FDD) system for the 84 hybrid adiabatic HVAC units at the TAVIL plant, developed with PROISOTEC GRUP Digital Twin. A Simulink digital twin computes the expected nominal behaviour, and a MATLAB inference engine based on a fault signature matrix identifies the root cause of each deviation.</p>
+            <a class="award" href="https://www.linkedin.com/posts/enginyeriaindustrial-talentenginyer-innovaciaej-ugcPost-7520419120165752832-ToW3/" target="_blank" rel="noopener" onclick="event.stopPropagation()"><span class="award-ico">🏆</span><span><strong>Best MEI Master's Thesis Award</strong><br>Enginyers Industrials de Catalunya · Demarcació de Girona · 2026</span><span class="award-go">↗</span></a>
+            <div class="highlight">Validated with real plant data: it identifies adiabatic subsystem degradation and compressor shutdown, each with its own thermodynamic signature.</div>
+            <div class="chips">
+              <span class="chip">MATLAB</span><span class="chip">Simulink</span><span class="chip">Digital twin</span><span class="chip">HVAC</span><span class="chip">Predictive maintenance</span>
+            </div>
+            <a class="pres-btn" href="docs/MSc-thesis-presentation.pdf" target="_blank" rel="noopener" onclick="event.stopPropagation()"><span>▶</span>View presentation<small>PDF</small></a>
+            <button class="open-btn" type="button">Images and documents ›</button>
+          </div>
+        </article>
+
+        <!-- PROJECT 2 · BACHELOR'S THESIS -->
+        <article class="card" data-p="bsc">
+          <div class="thumb t2">
+            <img class="top" src="img/bsc-thesis/02.jpg" alt="Bachelor's thesis poster: finite elements and machine learning applied to nozzle quenching of aluminium" loading="lazy">
+          </div>
+          <div class="card-body">
+            <p class="meta">2024 · BSc in Industrial Technology Engineering · UdG</p>
+            <h3>Finite elements and machine learning applied to aluminium quenching</h3>
+            <p>For Kautec Solutions I developed TermoPixel, a finite-element thermal simulator that models conduction, nozzle spraying and the Leidenfrost effect in aluminium profiles. On top of it, a genetic algorithm searches for the nozzle configuration that gives the fastest and most uniform cooling.</p>
+            <div class="highlight">34× faster than Ansys (max. error 3.8%), with machine learning tuning 33 cooler parameters: −56% water flow for the same result. Presented at the 30th Premis Patronat Politècnica.</div>
+            <a class="weblink" href="https://aluminium-journal.com/next-generation-quenching-for-high-performance-extrusion" target="_blank" rel="noopener" onclick="event.stopPropagation()">This work became Kautec's GOTA software · ALUMINIUM journal ↗</a>
+            <div class="chips">
+              <span class="chip">Finite elements</span><span class="chip">Genetic algorithm</span><span class="chip">MATLAB</span><span class="chip">Ansys</span><span class="chip">Heat transfer</span>
+            </div>
+            <a class="pres-btn" href="docs/BSc-thesis-presentation.pdf" target="_blank" rel="noopener" onclick="event.stopPropagation()"><span>▶</span>View presentation<small>PDF</small></a>
+            <button class="open-btn" type="button">Images and documents ›</button>
+          </div>
+        </article>
+
+        <!-- PROJECT 3 · HIGH-SCHOOL RESEARCH PROJECT -->
+        <article class="card" data-p="research">
+          <div class="thumb t3">
+            <img src="img/research-project-cover.jpg" alt="Render of the AlexSim pedal set" loading="lazy">
+          </div>
+          <div class="card-body">
+            <p class="meta">2019 · High-school research project (Treball de Recerca)</p>
+            <h3>AlexSim: from an idea to a company</h3>
+            <p>Design, construction and sale of sim-racing devices. I analysed the market, designed and validated the pedals, developed the electronics with Hall-effect sensors and strain gauges on Arduino, built the prototypes with my own laser cutter, and organised production and a social-media campaign.</p>
+            <div class="highlight">Entered in the 2020 Blanes Research Project Competition (Concurs de Treballs de Recerca).</div>
+            <a class="weblink" href="https://alexjir22011.wixsite.com/website-1/pedal" target="_blank" rel="noopener" onclick="event.stopPropagation()">Visit the AlexSim website ↗</a>
+            <div class="chips">
+              <span class="chip">Mechanical design</span><span class="chip">Arduino</span><span class="chip">Sensors</span><span class="chip">Business plan</span>
+            </div>
+            <a class="pres-btn" href="docs/research-project-presentation.pdf" target="_blank" rel="noopener" onclick="event.stopPropagation()"><span>▶</span>View presentation<small>PDF</small></a>
+            <button class="open-btn" type="button">Images and documents ›</button>
+          </div>
+        </article>
+
+        <!-- PROJECT 4 · CNC -->
+        <article class="card" data-p="cnc">
+          <div class="thumb t4">
+            <img src="img/cnc-laser.jpg" alt="Render of the CNC laser cutter design" loading="lazy">
+          </div>
+          <div class="card-body">
+            <p class="meta">2019 · Personal project</p>
+            <h3>Design and build of a CNC laser cutter</h3>
+            <p>A laser cutting and engraving machine designed from scratch: 3D modelling of the axis carriages and blocks, 3D-printed parts, assembly of the control electronics and tuning. I then used it as a manufacturing tool for the AlexSim prototypes.</p>
+            <div class="chips">
+              <span class="chip">CAD 3D</span><span class="chip">3D printing</span><span class="chip">CNC</span><span class="chip">Electronics</span>
+            </div>
+            <button class="open-btn" type="button">Images and documents ›</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head"><h2>Skills</h2></div>
+      <div class="skills">
+        <div class="skill-group">
+          <h3>CAD / CAM</h3>
+          <ul><li>SolidWorks</li><li>Fusion 360</li><li>Inventor</li><li>AutoCAD</li><li>Solid Edge</li><li>Diamonds</li><li>PTC Creo</li><li>CNC (ISO)</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Simulation</h3>
+          <ul><li>MATLAB</li><li>Simulink</li><li>Simscape</li><li>Ansys</li><li>OpenFOAM</li><li>Festo FluidSim</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Programming</h3>
+          <ul><li>Python</li><li>Julia</li><li>C#</li><li>MySQL</li><li>Arduino</li><li>Git</li><li>VS Code</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Industrial systems</h3>
+          <ul><li>SCADA</li><li>BMS</li><li>Siemens APIs</li><li>vNode</li><li>LaTeX</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <p class="tag">Contact</p>
+      <h2>Let's talk</h2>
+      <p>I'm open to new opportunities and collaborations. Drop me a line and I'll get back to you as soon as I can.</p>
+      <div class="links">
+        <a href="mailto:alexjiru2011@gmail.com" class="btn primary">alexjiru2011@gmail.com</a>
+        <a href="https://www.linkedin.com/in/alex-jimenez-9027b71b4/" class="btn ghost" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/AlexitoJR9" class="btn ghost" target="_blank" rel="noopener">GitHub</a>
+        <div class="cv-group"><span>CV</span><a href="docs/CV_AlexJimenez_EN.pdf" target="_blank" rel="noopener">EN</a><a href="docs/CV_AlexJimenez_ES.pdf" target="_blank" rel="noopener">ES</a></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Álex Jiménez Ruiz</span>
+      <span>Built with HTML and CSS · Hosted on GitHub Pages</span>
+    </div>
+  </footer>
+
+
+  <dialog class="project" id="project">
+    <div class="p-head">
+      <div><p class="meta" id="p-meta"></p><h2 id="p-title"></h2></div>
+      <button class="x" id="p-close" aria-label="Close">×</button>
+    </div>
+    <div class="p-body">
+      <p class="conf conf-big" id="p-conf">🔒 Confidential work carried out for a company, so only a small part of the project is shown.</p>
+      <h3>Documents and links</h3>
+      <div class="docs" id="p-docs"></div>
+      <div id="p-vids-wrap"><h3>Videos</h3><div class="videos" id="p-vids"></div></div>
+      <h3>Images</h3>
+      <div class="gallery" id="p-gallery"></div>
+    </div>
+  </dialog>
+
+  <dialog id="lightbox">
+    <button id="lb-close" aria-label="Close">×</button>
+    <button id="lb-prev" aria-label="Previous">‹</button>
+    <img id="lb-img" alt="">
+    <p id="lb-cap"></p>
+    <button id="lb-next" aria-label="Next">›</button>
+  </dialog>
+
+  <script>
+    const PROJECTS = {
+      msc: {
+        conf: true,
+        meta: "Master's thesis · 2026 · MSc in Industrial Engineering · UdG · 🏆 Best MEI Master's Thesis Award",
+        title: "FDD system for HVAC units",
+        docs: [["Presentation", "docs/MSc-thesis-presentation.pdf", "2.9 MB"]],
+        imgs: [["msc-thesis/01", "FDD report: probability of each fault, temperatures and operating stage"],
+               ["msc-thesis/02", "Diagram of the hybrid adiabatic unit"],
+               ["msc-thesis/03", "Digital twin of the unit in Simulink"],
+               ["msc-thesis/04", "Psychrometric chart of the air treatment"],
+               ["msc-thesis/05", "Fault signature matrix"],
+               ["msc-thesis/06", "Simulation model results"],
+               ["msc-thesis/07", "Consumption report: real vs. simulated"]]
+      },
+      bsc: {
+        conf: true,
+        vids: [["bsc-thesis-01", "Simulation of the temperature gradient across the profile"]],
+        meta: "Bachelor's thesis · 2024 · BSc in Industrial Technology Engineering · UdG",
+        title: "Finite elements and machine learning applied to aluminium quenching",
+        docs: [["GOTA software article", "https://aluminium-journal.com/next-generation-quenching-for-high-performance-extrusion", "ALUMINIUM journal", "web"], ["Poster", "docs/BSc-thesis-poster.pdf", "1 MB"], ["Presentation", "docs/BSc-thesis-presentation.pdf", "3.3 MB"]],
+        imgs: [["bsc-thesis/02", "Project poster (30th Premis Patronat Politècnica)"],
+               ["bsc-thesis/05", "Kautec nozzle quenching line"],
+               ["bsc-thesis/06", "Profile bent by non-uniform cooling"],
+               ["bsc-thesis/07", "Boiling curve and Leidenfrost effect"],
+               ["bsc-thesis/08", "Spray heat transfer correlations (Hall & Mudawar)"],
+               ["bsc-thesis/09", "Spray cone overlap and volumetric flux"],
+               ["bsc-thesis/10", "Calculation of the spray impact width (WID)"],
+               ["bsc-thesis/11", "WID justification on the profile"],
+               ["bsc-thesis/12", "Profile cross-section drawing with nozzle layout"],
+               ["bsc-thesis/13", "Nozzle distribution by zone along the line"]]
+      },
+      research: {
+        vids: [["research-project-01", "Animation of the AlexSim pedal set"],
+               ["research-project-02", "Calibrating the pedals in Windows"],
+               ["research-project-03", "Testing the pedals in a rally simulator"],
+               ["research-project-04", "360° render animation of the pedal set"]],
+        meta: "High-school research project · 2019 · Treball de Recerca",
+        title: "AlexSim: from an idea to a company",
+        docs: [["AlexSim website", "https://alexjir22011.wixsite.com/website-1/pedal", "wixsite.com", "web"], ["Presentation", "docs/research-project-presentation.pdf", "4.5 MB"], ["Poster", "docs/research-project-poster.pdf", "3 MB"], ["Report (Catalan)", "docs/research-project-report.pdf", "8.8 MB"]],
+        imgs: [["research-project/00", "AlexSim pedal set render"],
+               ["research-project/01", "Render of the AlexSim pedal set"],
+               ["research-project/02", "Render of the AlexSim handbrake"],
+               ["research-project/03", "Render of the AlexSim gear shifter"],
+               ["research-project/04", "CAD assembly of the pedal set"],
+               ["research-project/05", "CAD design of the pedal"],
+               ["research-project/06", "Rendering the pedal set"],
+               ["research-project/07", "Gear shifter mechanism design"],
+               ["research-project/08", "Force diagram on the pedal lever"],
+               ["research-project/09", "Pedal design parameters"],
+               ["research-project/10", "Pedal mock-up"],
+               ["research-project/11", "Pedal mock-up (side view)"],
+               ["research-project/12", "3D printer making parts"],
+               ["research-project/13", "Hall effect principle"],
+               ["research-project/14", "Strain gauge under bending"],
+               ["research-project/15", "Electronics prototype on a breadboard"],
+               ["research-project/16", "Tests with an Arduino Pro Micro"],
+               ["research-project/17", "Tests with an Arduino UNO"],
+               ["research-project/18", "Load cell test"],
+               ["research-project/19", "Electronics test setup"],
+               ["research-project/20", "Arduino-based wiring diagram"],
+               ["research-project/21", "Electronic schematic design"],
+               ["research-project/22", "PCB design (top side)"],
+               ["research-project/23", "PCB design (bottom side)"],
+               ["research-project/24", "Programming the Arduino firmware"],
+               ["research-project/25", "AlexSim website"]]
+      },
+      cnc: {
+        vids: [["cnc-01", "First tests of the cutter in operation"],
+               ["cnc-02", "Timelapse of the 3D design of a cutter part"]],
+        meta: "Personal project · 2019",
+        title: "Design and build of a CNC laser cutter",
+        docs: [["Y-axis carriage drawing", "docs/CNC-Y-axis-carriage.pdf", "0.1 MB"], ["Y-axis carriage drawing (exploded)", "docs/CNC-Y-axis-carriage-exploded.pdf", "0.1 MB"], ["Y-axis block drawing", "docs/CNC-Y-axis-block.pdf", "0.1 MB"]],
+        imgs: [["cnc/01", "Render of the complete cutter"],
+               ["cnc/02", "The cutter in operation"],
+               ["cnc/03", "Y-axis carriage"],
+               ["cnc/04", "X-axis carriage with the laser module"],
+               ["cnc/05", "Y-axis block"],
+               ["cnc/06", "3D-printed carriage with stepper motor"],
+               ["cnc/07", "Close-up of the carriage pulleys and bearings"],
+               ["cnc/08", "3D printing the parts"],
+               ["cnc/09", "Printed carriage part"]]
+      }
+    };
+
+    const dlg = document.getElementById('project');
+    const lb = document.getElementById('lightbox');
+    let cur = null, idx = 0;
+
+    function openProject(key) {
+      const p = PROJECTS[key]; cur = p;
+      document.getElementById('p-meta').textContent = p.meta;
+      document.getElementById('p-title').textContent = p.title;
+      document.getElementById('p-docs').innerHTML = p.docs.map(([n, u, s, t]) =>
+        `<a class="doc" href="${u}" target="_blank" rel="noopener"><span class="pdf${t === 'web' ? ' web' : ''}">${t === 'web' ? 'WEB ↗' : 'PDF'}</span>${n}<small>${s}</small></a>`).join('');
+      document.getElementById('p-gallery').innerHTML = p.imgs.map(([f, c], i) =>
+        `<figure data-i="${i}"><img src="img/${f}-t.jpg" alt="${c}" loading="lazy"><figcaption>${c}</figcaption></figure>`).join('');
+      document.getElementById('p-conf').style.display = p.conf ? '' : 'none';
+      const vids = p.vids || [];
+      document.getElementById('p-vids-wrap').style.display = vids.length ? '' : 'none';
+      document.getElementById('p-vids').innerHTML = vids.map(([f, c]) =>
+        `<figure><video controls playsinline preload="none" poster="video/${f}.jpg"><source src="video/${f}.mp4" type="video/mp4"></video><figcaption>${c}</figcaption></figure>`).join('');
+      dlg.showModal(); dlg.scrollTop = 0;
+    }
+    function showImg(i) {
+      idx = (i + cur.imgs.length) % cur.imgs.length;
+      const [f, c] = cur.imgs[idx];
+      document.getElementById('lb-img').src = `img/${f}.jpg`;
+      document.getElementById('lb-img').alt = c;
+      document.getElementById('lb-cap').textContent = `${c}  ·  ${idx + 1}/${cur.imgs.length}`;
+      if (!lb.open) lb.showModal();
+    }
+    const closeLb = () => lb.close();
+
+    document.querySelectorAll('.card[data-p]').forEach(card => {
+      const k = card.dataset.p, p = PROJECTS[k];
+      card.querySelector('.open-btn').insertAdjacentHTML('beforeend', `<span class="counts">${p.imgs.length} img · ${p.vids ? p.vids.length + (p.vids.length === 1 ? ' video · ' : ' videos · ') : ''}${p.docs.filter(d => d[3] !== 'web').length} pdf</span>`);
+      card.addEventListener('click', () => openProject(k));
+    });
+    document.getElementById('p-close').onclick = () => dlg.close();
+    dlg.addEventListener('close', () => document.querySelectorAll('#p-vids video').forEach(v => v.pause()));
+    dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+    document.getElementById('p-gallery').addEventListener('click', e => {
+      const fig = e.target.closest('figure'); if (fig) showImg(+fig.dataset.i);
+    });
+    document.getElementById('lb-close').onclick = closeLb;
+    document.getElementById('lb-prev').onclick = e => { e.stopPropagation(); showImg(idx - 1); };
+    document.getElementById('lb-next').onclick = e => { e.stopPropagation(); showImg(idx + 1); };
+    lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', e => {
+      if (!lb.open) return;
+      if (e.key === 'ArrowLeft') showImg(idx - 1);
+      if (e.key === 'ArrowRight') showImg(idx + 1);
+    }, true);
+  </script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

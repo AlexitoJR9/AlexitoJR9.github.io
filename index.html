@@ -118,13 +118,15 @@
     .card p { color: var(--muted); font-size: 1rem; flex: 1; line-height: 1.55; }
     .card .meta { flex: none; }
     .highlight { margin-top: 16px; font-size: .95rem; color: var(--ink); font-weight: 500; }
-    .award { display: flex; align-items: center; gap: 10px; margin-top: 16px; padding: 12px 16px; border-radius: 14px; background: var(--blue-soft); text-decoration: none; font-size: .9rem; line-height: 1.35; color: var(--ink); transition: background .2s; }
-    .award:hover { background: #dcebfc; }
-    .award-ico { font-size: 1.2rem; } .award-go { margin-left: auto; color: var(--blue); }
+    .award { display: inline-flex; align-self: flex-start; align-items: center; gap: 6px; margin-top: 14px; padding: 6px 14px; border-radius: 980px; background: #ffd60a; color: #3a2c00; font-size: .85rem; font-weight: 600; text-decoration: none; transition: background .2s; }
+    .award:hover { background: #ffc800; }
+    .award-go { opacity: .7; }
     .weblink { display: inline-block; margin-top: 14px; font-size: .95rem; color: var(--blue); text-decoration: none; }
     .weblink:hover { text-decoration: underline; }
     .chips { display: flex; flex-wrap: wrap; gap: 4px 0; margin: 18px 0 22px; font-size: .82rem; color: var(--muted); }
-    .chip + .chip::before { content: "·"; margin: 0 8px; }
+    /* separator before every chip; the one that starts each line is clipped away */
+    .chips { margin-left: -21px; clip-path: inset(0 0 0 21px); }
+    .chip::before { content: ""; display: inline-block; width: 1px; height: .85em; background: #c7c7cc; margin: 0 10px; vertical-align: -1px; }
     .pres-btn { display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; margin-bottom: 14px; padding: 10px 20px; border-radius: 980px; background: var(--blue); color: #fff; text-decoration: none; font-size: .95rem; transition: background .2s; }
     .pres-btn:hover { background: var(--blue-hover); }
     .pres-btn span, .pres-btn small { display: none; }
@@ -321,10 +323,10 @@
             <img class="contain" src="img/msc-thesis/02.jpg" alt="Diagram of the hybrid adiabatic HVAC unit" loading="lazy">
           </div>
           <div class="card-body">
-            <p class="meta">2026 · MSc in Industrial Engineering · UdG</p>
+            <p class="meta">2026 · MSc in Industrial Engineering · University of Girona</p>
             <h3>FDD system for HVAC units</h3>
             <p>Design and implementation of a fault detection and diagnosis (FDD) system for the 84 hybrid adiabatic HVAC units at the TAVIL plant, developed with PROISOTEC GRUP Digital Twin. A Simulink digital twin computes the expected nominal behaviour, and a MATLAB inference engine based on a fault signature matrix identifies the root cause of each deviation.</p>
-            <a class="award" href="https://www.linkedin.com/posts/enginyeriaindustrial-talentenginyer-innovaciaej-ugcPost-7520419120165752832-ToW3/" target="_blank" rel="noopener" onclick="event.stopPropagation()"><span class="award-ico">🏆</span><span><strong>Best MEI Master's Thesis Award</strong><br>Enginyers Industrials de Catalunya · Demarcació de Girona · 2026</span><span class="award-go">↗</span></a>
+            <a class="award" href="https://www.linkedin.com/posts/enginyeriaindustrial-talentenginyer-innovaciaej-ugcPost-7520419120165752832-ToW3/" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Enginyers Industrials de Catalunya · Demarcació de Girona · 2026">🏆 Best MEI Master's Thesis Award <span class="award-go">↗</span></a>
             <div class="highlight">Validated with real plant data: it identifies adiabatic subsystem degradation and compressor shutdown, each with its own thermodynamic signature.</div>
             <div class="chips">
               <span class="chip">MATLAB</span><span class="chip">Simulink</span><span class="chip">Digital twin</span><span class="chip">HVAC</span><span class="chip">Predictive maintenance</span>
@@ -340,10 +342,10 @@
             <img class="contain" src="img/bsc-thesis-cover.jpg" alt="Simulated nozzle spray pattern around an aluminium profile" loading="lazy">
           </div>
           <div class="card-body">
-            <p class="meta">2024 · BSc in Industrial Technology Engineering · UdG</p>
+            <p class="meta">2024 · BSc in Industrial Technology Engineering · University of Girona</p>
             <h3>Finite elements and machine learning applied to aluminium quenching</h3>
             <p>A fast finite-element thermal simulator (TermoPixel) and a genetic algorithm that automatically find the nozzle configuration that quenches extruded aluminium profiles quickly and evenly, using less water. Developed for Kautec Solutions; it became the basis of their GOTA software.</p>
-            <div class="highlight">34× faster than Ansys (max. error 3.8%), with machine learning tuning 33 cooler parameters: −56% water flow for the same result. Presented at the 30th Premis Patronat Politècnica.</div>
+            <div class="highlight">34× faster than Ansys (36 s vs. about 20 min) with a maximum error of 3.8%. In a real case, the optimised setup cooled the profile more symmetrically and cut coolant flow by 24.7% (150 → 113 l/min). Presented at the 30th Premis Patronat Politècnica.</div>
             <a class="weblink" href="https://aluminium-journal.com/next-generation-quenching-for-high-performance-extrusion" target="_blank" rel="noopener" onclick="event.stopPropagation()">This work became Kautec's GOTA software · ALUMINIUM journal ↗</a>
             <div class="chips">
               <span class="chip">Finite elements</span><span class="chip">Genetic algorithm</span><span class="chip">MATLAB</span><span class="chip">Ansys</span><span class="chip">Heat transfer</span>
@@ -476,13 +478,13 @@
   -->
 
   <!-- ===================== MASTER'S THESIS ===================== -->
-  <template id="cs-msc" data-meta="Master's thesis · 2026 · MSc in Industrial Engineering · UdG" data-title="FDD system for HVAC units">
+  <template id="cs-msc" data-meta="Master's thesis · 2026 · MSc in Industrial Engineering · University of Girona" data-title="FDD system for HVAC units">
     <img class="cs-hero" src="img/msc-thesis/02.jpg" alt="Diagram of the hybrid adiabatic HVAC unit">
     <p class="cs-lead">A digital-twin-based system that detects and diagnoses faults in industrial HVAC units, including the silent degradation that control loops hide until it becomes a breakdown or a waste of energy.</p>
     <dl class="cs-facts">
       <div><dt>Role</dt><dd>Sole developer</dd></div>
       <div><dt>Partners</dt><dd>PROISOTEC GRUP Digital Twin · TAVIL</dd></div>
-      <div><dt>Tutor</dt><dd>Joan Colomer Llinàs · UdG</dd></div>
+      <div><dt>Tutor</dt><dd>Joan Colomer Llinàs · University of Girona</dd></div>
       <div><dt>Tools</dt><dd>MATLAB · Simulink · Python</dd></div>
       <div><dt>Recognition</dt><dd>🏆 Best MEI Master's Thesis</dd></div>
     </dl>
@@ -528,13 +530,13 @@
   </template>
 
   <!-- ===================== BACHELOR'S THESIS ===================== -->
-  <template id="cs-bsc" data-meta="Bachelor's thesis · 2024 · BSc in Industrial Technology Engineering · UdG" data-title="Finite elements and machine learning applied to aluminium quenching">
+  <template id="cs-bsc" data-meta="Bachelor's thesis · 2024 · BSc in Industrial Technology Engineering · University of Girona" data-title="Finite elements and machine learning applied to aluminium quenching">
     <img class="cs-hero" src="img/bsc-thesis/06.jpg" alt="Aluminium profile on the extrusion line">
     <p class="cs-lead">A fast thermal simulator and a genetic algorithm that find the best nozzle configuration to quench extruded aluminium profiles.</p>
     <dl class="cs-facts">
       <div><dt>Role</dt><dd>R&amp;D intern</dd></div>
       <div><dt>Company</dt><dd>Kautec Solutions</dd></div>
-      <div><dt>Tutors</dt><dd>Albert Massaguer · Carolina Madeira (UdG)</dd></div>
+      <div><dt>Tutors</dt><dd>Albert Massaguer · Carolina Madeira (University of Girona)</dd></div>
       <div><dt>Tools</dt><dd>MATLAB · Ansys</dd></div>
       <div><dt>Outcome</dt><dd>GOTA software</dd></div>
     </dl>
